@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.2'
+ruby '2.0.0'
 
 gem 'coffee-rails'
 gem 'delayed_job_active_record', '>= 4.0.0'
@@ -8,7 +8,7 @@ gem 'email_validator'
 gem 'exception_notification'
 gem 'high_voltage'
 gem 'jquery-rails'
-gem 'nokogiri', '1.6.3'
+gem 'nokogiri', '1.6.3.1'
 gem 'pg'
 gem 'pg_search'
 gem 'pretty_formatter'
