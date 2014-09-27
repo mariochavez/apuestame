@@ -31,8 +31,9 @@ group :development do
 end
 
 group :development, :test do
-  gem 'spring'
   gem 'minitest-rails', '~> 2.0.0'
+  gem 'pry-rails'
+  gem 'spring'
 end
 
 group :test do

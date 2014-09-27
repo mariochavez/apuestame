@@ -7,7 +7,7 @@ module Strategies
     def authenticate!
       organization = Organization.find_by_email(params['organization']['email']).try(:authenticate, params['organization']['password'])
 
-      return success! organization if organization
+      return success!(organization) if organization
       fail! I18n.t('sessions.create.invalid_credentials')
     end
   end

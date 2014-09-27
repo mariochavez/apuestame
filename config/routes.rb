@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  resources :campaigns
+
   resource :sessions, only: [:create, :new]
   resource :organization, only: [:create, :new]
   delete 'log_out' => 'sessions#destroy', as: :log_out

@@ -25,7 +25,7 @@ module Apuestame
       generate.request_specs false
       generate.routing_specs false
       generate.stylesheets false
-      generate.test_framework :mini_test, :spec => true, :fixture => true
+      generate.test_framework :minitest, :spec => true, :fixture => true
       generate.view_specs false
     end
 
