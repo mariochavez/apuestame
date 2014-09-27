@@ -1,4 +1,18 @@
 en:
+  sessions:
+    new:
+      log_in: 'Log in'
+    create:
+      invalid_credentials: 'Your credentials are invalid'
+      logged_in: 'Welcome back!'
+    destroy:
+      logged_out: 'See you later!'
+  organizations:
+    new:
+      create: 'Create organization'
+    create:
+      sign_up: 'Welcome to your new account!'
+
   date:
     formats:
       default: '%m/%d/%Y'

@@ -29,6 +29,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.6)
     arel (5.0.1.20140414130214)
+    bcrypt-ruby (3.1.2)
     better_errors (2.0.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -83,6 +84,8 @@ GEM
     json (1.8.1)
     launchy (2.4.2)
       addressable (~> 2.3)
+    mac_generators (0.2.0)
+      rails (~> 4.1.0)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -193,6 +196,8 @@ GEM
     uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    warden (1.2.3)
+      rack (>= 1.0)
     webmock (1.18.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
@@ -204,6 +209,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt-ruby
   better_errors
   binding_of_caller
   coffee-rails
@@ -215,6 +221,7 @@ DEPENDENCIES
   high_voltage
   jquery-rails
   launchy
+  mac_generators
   minitest-rails (~> 2.0.0)
   minitest-rails-capybara
   newrelic_rpm (>= 3.6.7)
@@ -236,4 +243,5 @@ DEPENDENCIES
   slim
   spring
   uglifier
+  warden (~> 1.2.0)
   webmock

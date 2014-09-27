@@ -8,6 +8,7 @@ gem 'email_validator'
 gem 'exception_notification'
 gem 'high_voltage'
 gem 'jquery-rails'
+gem 'mac_generators'
 gem 'nokogiri', '1.6.3.1'
 gem 'pg'
 gem 'pg_search'
@@ -49,3 +50,6 @@ group :staging, :production do
   gem 'newrelic_rpm', '>= 3.6.7'
   gem 'rails_12factor'
 end
+
+gem "warden", "~> 1.2.0"
+gem "bcrypt-ruby"
