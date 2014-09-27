@@ -1,0 +1,18 @@
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  organization: 
+  name: MyString
+  amount: 
+  amount: 
+  end_date: 2014-09-27 16:53:36
+  description: MyText
+
+two:
+  organization: 
+  name: MyString
+  amount: 
+  amount: 
+  end_date: 2014-09-27 16:53:36
+  description: MyText
