@@ -9,6 +9,7 @@ class CampaignsController < ApplicationController
   def create
     @campaign = Campaign.new secure_params
     @campaign.organization =  current_organization
+    @campaign.save
 
     create!
   end
