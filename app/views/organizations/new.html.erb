@@ -19,6 +19,34 @@
   <p>
     <%= form.label :password_confirmation %>
     <%= form.password_field :password_confirmation %>
-  </p>
-  <p class='button'><%= form.submit t('.create')%></p>
+
+    </p>
+
+<p>
+    <%= form.label :Name %>
+    <%= form.text_field :Name %>
+</p>
+
+<p>
+    <%= form.label :Address %>
+    <%= form.text_field :Address %>
+
+</p>
+
+<p>
+    <%= form.label :Description %>
+    <%= form.text_field :Description %>
+</p>
+
+<p>
+    <%= form.label :RFC %>
+    <%= form.text_field :RFC %>
+</p>
+
+<p>
+    <%= form.label :Paypal %>
+    <%= form.text_field :Paypal %>
+</p>
+
+<p class='button'><%= form.submit t('.create')%></p>
 <% end %>
