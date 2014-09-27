@@ -17,7 +17,7 @@ class OrganizationsController < ApplicationController
 
 private
   def organization_params
-    params.require(:organization).permit :email, :password, :password_confirmation, :Name, :Address, :Description, :RFC, :Paypal
+    params.require(:organization).permit :email, :password, :password_confirmation, :name, :address, :description, :rfc, :paypal
   end
 
 end

@@ -4,10 +4,10 @@ class Organization < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
   validates :password_confirmation, presence: true, if: -> r { r.password.present? }
 
-  validates :Name, presence: true
-  validates :Address, presence: true
-  validates :Description, presence: true
-  validates :RFC, presence: true
-  validates :Paypal, presence: true
+  validates :name, presence: true
+  validates :address, presence: true
+  validates :description, presence: true
+  validates :rfc, presence: true
+  validates :paypal, presence: true
 
 end
