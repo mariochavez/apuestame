@@ -18,6 +18,12 @@ class CampaignsController < ApplicationController
     index!
   end
 
+  def new
+    return root_path if !current_identity.eligible?
+
+    new!
+  end
+
   def create
     @campaign = Campaign.new secure_params
     @campaign.identity =  current_identity
@@ -29,24 +35,18 @@ class CampaignsController < ApplicationController
   def edit
     @campaign = Campaign.where(id: params[:id]).where(identity: current_identity).first
 
-    if @campaign.nil?
-        return redirect_to campaigns_path, notice: "Campaign doesn't exists"
-    end
+    return redirect_to campaigns_path, notice: "Campaign doesn't exists" if @campaign.nil?
 
     @campaign.update_attributes secure_params
-
     edit!
   end
 
   def update
     @campaign = Campaign.where(id: params[:id]).where(identity: current_identity).first
 
-    if @campaign.nil?
-        return redirect_to campaigns_path, notice: "Campaign doesn't exists"
-    end
+    return redirect_to campaigns_path, notice: "Campaign doesn't exists" if @campaign.nil?
 
     @campaign.update_attributes secure_params
-
     update!
   end
 

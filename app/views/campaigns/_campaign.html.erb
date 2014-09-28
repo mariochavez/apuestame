@@ -6,6 +6,6 @@
   <p><%= campaign.description %></p>
 
   <% if identity_signed_in? && current_identity.id == campaign.identity_id %>
-      <p><%= link_to 'Edit', edit_campaign_path(campaign) %></p>
+    <p><%= link_to 'Edit', edit_campaign_path(campaign) %></p>
   <% end %>
 </div>

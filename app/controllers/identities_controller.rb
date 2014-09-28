@@ -1,5 +1,9 @@
 class IdentitiesController < ApplicationController
 
+  def show
+    render text: 'Hello'
+  end
+
   def new
     @identity = Identity.new
   end

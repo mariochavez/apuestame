@@ -1,0 +1,21 @@
+<div id="menu">
+  <ul>
+    <li>
+      <%= link_to 'Home', root_path %>
+    </li>
+    <li>
+      <%= link_to 'Campaigns', campaigns_path %>
+    </li>
+    <% if identity_signed_in? && current_identity.eligible? %>
+      <li>
+        <%= link_to 'New Campaig', new_campaign_path %>
+      </li>
+    <% end %>
+
+    <% if identity_signed_in? %>
+      <li>
+        <%= link_to 'Profile', identity_path %>
+      </li>
+    <% end %>
+  </ul>
+</div>
