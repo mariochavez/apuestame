@@ -1,7 +1,10 @@
 class IdentitiesController < ApplicationController
+  include Restful::Base
+
+  restful model: :identity
 
   def show
-    render text: 'Hello'
+    @identity = current_identity
   end
 
   def new
@@ -17,6 +20,15 @@ class IdentitiesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def update
+    @identity = Identity.where(id: current_identity.id).first
+
+    return redirect_to identity_path, notice: "User Profile doesn't exists" if @identity.nil?
+
+    @identity.update_attributes identity_params
+    redirect_to identity_path, notice: "User profile has been updated"
   end
 
 private

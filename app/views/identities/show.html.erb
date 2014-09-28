@@ -1,0 +1,7 @@
+<h1>Editar Usuario: <%= @identity.name %></h1>
+<%= simple_form_for @identity do |form| %>
+  <%= form.input :name %>
+  <%= form.input :rfc %>
+  <%= form.input :paypal %>
+  <%= form.button :submit %>
+<% end %>
