@@ -1,1 +1,7 @@
 <h1>Campaings</h1>
+
+<% if organization_signed_in? %>
+  <p><%= link_to 'our campaigns', campaigns_path %> | <%= link_to 'all campaigns', "#{campaigns_path}?#{{all: 1}.to_query}" %></p>
+<% end %>
+
+<%= render @campaigns %>

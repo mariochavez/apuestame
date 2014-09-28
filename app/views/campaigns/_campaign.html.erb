@@ -1,0 +1,7 @@
+<div class='campaign' id=<%= "campaign_#{campaign.id}" %>>
+  <h2><%= campaign.name %></h2>
+  <h3><%= campaign.organization_name %></h3>
+  <p><%= distance_of_time_in_words_to_now campaign.end_date %></p>
+  <p><%= number_to_currency campaign.amount %></p>
+  <p><%= campaign.description %></p>
+</div>

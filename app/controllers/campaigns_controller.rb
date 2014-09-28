@@ -2,9 +2,21 @@ class CampaignsController < ApplicationController
   include Restful::Base
   respond_to :html
 
-  before_action :authenticate!
+  before_action :authenticate!, except: [:index]
 
   restful model: :campaign
+
+  def index
+    all = params[:all] == '1'
+
+    if organization_signed_in? && !all
+      @campaigns = Campaign.my_campaigns(current_organization).recent
+    else
+      @campaigns = Campaign.active.recent
+    end
+
+    index!
+  end
 
   def create
     @campaign = Campaign.new secure_params
