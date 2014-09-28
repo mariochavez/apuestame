@@ -4,4 +4,6 @@
   <p><%= link_to 'our campaigns', campaigns_path %> | <%= link_to 'all campaigns', "#{campaigns_path}?#{{all: 1}.to_query}" %></p>
 <% end %>
 
-<%= render @campaigns %>
+<div class="col-md-12 col-lg-12">
+    <%= render @campaigns %>
+</div>

@@ -1,11 +1,11 @@
-<div class='campaign' id=<%= "campaign_#{campaign.id}" %>>
-  <h2><%= campaign.name %></h2>
-  <h3><%= campaign.identity_name %></h3>
-  <p><%= distance_of_time_in_words_to_now campaign.end_date %></p>
-  <p><%= number_to_currency campaign.amount %></p>
-  <p><%= campaign.description %></p>
+<div class='campaign col-md-3 col-lg-3' id=<%= "campaign_#{campaign.id}" %>>
+  <h2><%= link_to campaign.name, campaign_path(campaign) %></h2>
+  <h4><%= campaign.identity_name %></h4>
+  <p>Ends: <%= distance_of_time_in_words_to_now campaign.end_date %></p>
+  <p>Goal: <%= number_to_currency campaign.amount %></p>
+  <p>Description: <%= campaign.description %></p>
 
   <% if identity_signed_in? && current_identity.id == campaign.identity_id %>
     <p><%= link_to 'Edit', edit_campaign_path(campaign) %></p>
-  <% end %>
+<% end %>
 </div>

@@ -5,6 +5,7 @@ class Campaign < ActiveRecord::Base
   accepts_nested_attributes_for :rewards, allow_destroy: true
 
   delegate :name, to: :identity, prefix: true
+  delegate :id, to: :identity, prefix: true
 
   validates :name, :identity_id, :address, :amount,
     :end_date, :description, presence: true
