@@ -13,4 +13,19 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require jquery.nested-fields
 //= require_tree .
+
+(function(init) {
+    init(window.jQuery, window, document);
+}(function($, window, document){
+    $(function(){
+        $(document).ready(function(e) {
+            $('.new_campaign').nestedFields({
+                itemTemplateSelector: '.template',
+                skipBefore: true,
+                containerSelector: '#items'
+            });
+        });
+    });
+}));

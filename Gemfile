@@ -24,6 +24,7 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'slim'
 gem 'uglifier'
+gem 'awesome_nested_fields'
 
 group :development do
   gem 'better_errors'

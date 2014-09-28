@@ -37,7 +37,7 @@ class CampaignsController < ApplicationController
 
     return redirect_to campaigns_path, notice: "Campaign doesn't exists" if @campaign.nil?
 
-    @campaign.update_attributes secure_params
+    #@campaign.update_attributes secure_params
     edit!
   end
 
@@ -51,6 +51,6 @@ class CampaignsController < ApplicationController
   end
 
   def secure_params
-    params.require(:campaign).permit :name, :amount, :end_date, :description, :tags, :address
+    params.require(:campaign).permit :name, :amount, :end_date, :description, :tags, :address, rewards_attributes: [:amount, :description, :id, :_destroy]
   end
 end

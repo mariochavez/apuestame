@@ -1,5 +1,8 @@
 class Campaign < ActiveRecord::Base
   belongs_to :identity
+  has_many :rewards
+
+  accepts_nested_attributes_for :rewards, allow_destroy: true
 
   delegate :name, to: :identity, prefix: true
 
