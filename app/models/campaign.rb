@@ -1,6 +1,7 @@
 class Campaign < ActiveRecord::Base
   belongs_to :identity
   has_many :rewards
+  has_many :donations
 
   accepts_nested_attributes_for :rewards, allow_destroy: true
 
@@ -22,6 +23,10 @@ class Campaign < ActiveRecord::Base
 
   def tags_flat
     self.tags.join(',')
+  end
+
+  def get_bakers_count
+      @donations = Donation.select('DISTINCT *').joins(:reward).where('rewards.campaign_id = ?', self.id)
   end
 
   scope :active, -> { where('end_date >= ?', Date.today)  }

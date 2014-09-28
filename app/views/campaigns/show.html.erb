@@ -16,7 +16,9 @@
             <p><%= @campaign.description %></p>
         </div>
         <div class="col-lg-4 col-md-4">
-            <h3>Rewards: <%= @campaign.rewards.count %></h3>
+            <h4>Rewards: <%= @campaign.rewards.count %></h4>
+            <h4>Expires in: <%= distance_of_time_in_words_to_now @campaign.end_date %></h4>
+            <h4><%= @campaign.get_bakers_count.count(:id) %> Donors</h4>
             <% @campaign.rewards.each do |reward| %>
                 <div class="panel panel-default">
                     <div class="panel-body">
@@ -24,7 +26,7 @@
                     </div>
                     <% if identity_signed_in? && (current_identity.id != @campaign.identity_id) %>
                         <div class="panel-footer">
-                            <a href="#" class="btn btn-info"><i class="fa fa-credit-card"></i> Donate</a>
+                            <a href="#" class="btn btn-info" data-action="donate" data-modal="#donateToRewardModal" data-controller="<%= reward_path(reward) %>" data-updatepanel="#donateToRewardModal"><i class="fa fa-credit-card"></i> Bid</a>
                         </div>
                     <% end %>
                 </div>
@@ -32,3 +34,6 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="donateToRewardModal">
+</div><!-- /.modal -->

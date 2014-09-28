@@ -1,0 +1,18 @@
+development:
+  paypal_endpoint: api.sandbox.paypal.com
+  paypal_client_id: AZH7CxA5YQ-48OpD_cgmRguszLdDdc_HFAamVqgjMzYFz60p8drWeEgnQ6Jv
+  paypal_secret: EMJnqRAgTIHRDPO2caPOVrSg9pZtsdNMDixgwWdAuuyFcg8S3Eey77xwKxgW
+  paypal_account: gustavo.barrientos@acidstudios.me
+
+test:
+  paypal_endpoint: api.sandbox.paypal.com
+  paypal_client_id: AZH7CxA5YQ-48OpD_cgmRguszLdDdc_HFAamVqgjMzYFz60p8drWeEgnQ6Jv
+  paypal_secret: EMJnqRAgTIHRDPO2caPOVrSg9pZtsdNMDixgwWdAuuyFcg8S3Eey77xwKxgW
+  paypal_account: gustavo.barrientos@acidstudios.me
+
+production:
+  paypal_endpoint: api.paypal.com
+  paypal_client_id: AWSmcBBGPX-P3rAGbfazb-kV-0HZKgwTPRNJM1H3oP0kUTvcJtllZW0gEQCD
+  paypal_secret: EOdHNRCYN0S8rcXzZOAtmR5wOQKIJyI9o98TJDbRRf3-JFE9NiusThk85KcR
+  paypal_account: gustavo.barrientos@acidstudios.me
+

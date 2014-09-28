@@ -20,12 +20,61 @@
     init(window.jQuery, window, document);
 }(function($, window, document){
     $(function(){
-        $(document).ready(function(e) {
             $('.new_campaign').nestedFields({
                 itemTemplateSelector: '.template',
                 skipBefore: true,
                 containerSelector: '#items'
             });
-        });
+
+            $(document).on('click', 'button[data-action=donate], a[data-action=donate]', function(e){
+                var self = $(this),
+                    modal = $(self.data('modal')),
+                    controller = self.data('controller'),
+                    panel = $(self.data('updatepanel'));
+
+                $.ajax({
+                    url: controller,
+                    type: 'get',
+                    cache: false,
+                    beforeSend: function() {
+                    },
+                    complete: function() {
+                    },
+                    success: function(data) {
+                        panel.html(data);
+                        modal.modal('show');
+                    },
+                    error: function(jqXHR, error, status) {
+                        console.log(jqXHR);
+                    }
+                });
+            }).on('click', 'button[data-action=complete-donation], a[data-action=complete-donation]', function(e) {
+                var self = $(this),
+                    modal = $(self.data('modal')),
+                    controller = self.data('controller');
+                    amount = $('#txtAmount').val();
+
+                $.ajax({
+                    url: controller,
+                    type: 'get',
+                    data: {money: { amount: amount}},
+                    cache: false,
+                    beforeSend: function() {
+                    },
+                    complete: function() {
+                    },
+                    success: function(data) {
+                        if(data) {
+                            var links = data.links;
+                            var payment_id = data.payment_id;
+                            window.location.href = links[1].href;
+                        }
+                        console.log(data);
+                    },
+                    error: function(jqXHR, error, status) {
+                        console.log(jqXHR);
+                    }
+                });
+            });
     });
 }));

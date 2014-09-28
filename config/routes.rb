@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
   resources :campaigns
+  resources :rewards, only: [:show]
+  resources :payments do
+      match :show, :via => [:get], :on => :collection
+      match :success, :via => [:get], :on => :collection
+   end
 
   resource :sessions, only: [:create, :new]
   resource :identity, only: [:create, :new, :edit, :update, :show]
