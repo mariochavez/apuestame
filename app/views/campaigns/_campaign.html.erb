@@ -1,11 +1,11 @@
 <div class='campaign' id=<%= "campaign_#{campaign.id}" %>>
   <h2><%= campaign.name %></h2>
-  <h3><%= campaign.organization_name %></h3>
+  <h3><%= campaign.identity_name %></h3>
   <p><%= distance_of_time_in_words_to_now campaign.end_date %></p>
   <p><%= number_to_currency campaign.amount %></p>
   <p><%= campaign.description %></p>
 
-  <% if organization_signed_in? && current_organization.id == campaign.organization_id %>
+  <% if identity_signed_in? && current_identity.id == campaign.identity_id %>
       <p><%= link_to 'Edit', edit_campaign_path(campaign) %></p>
   <% end %>
 </div>

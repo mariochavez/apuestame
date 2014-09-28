@@ -7,9 +7,9 @@ en:
       logged_in: 'Welcome back!'
     destroy:
       logged_out: 'See you later!'
-  organizations:
+  identities:
     new:
-      create: 'Create organization'
+      create: 'Create identity'
     create:
       sign_up: 'Welcome to your new account!'
 

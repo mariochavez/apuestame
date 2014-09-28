@@ -1,8 +1,8 @@
-<%= form_for @organization, url: organization_path do |form| %>
-  <% if @organization.errors.any? %>
+<%= form_for @identity, url: identity_path do |form| %>
+  <% if @identity.errors.any? %>
     <h2>Form is invalid</h2>
     <ul>
-      <% for message in @organization.errors.full_messages %>
+      <% for message in @identity.errors.full_messages %>
         <li><%= message %>
       <% end %>
     </ul>
@@ -25,17 +25,6 @@
 <p>
     <%= form.label :name %>
     <%= form.text_field :name %>
-</p>
-
-<p>
-    <%= form.label :address %>
-    <%= form.text_field :address %>
-
-</p>
-
-<p>
-    <%= form.label :description %>
-    <%= form.text_field :description %>
 </p>
 
 <p>

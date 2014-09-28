@@ -3,9 +3,13 @@ class Campaign < ActiveRecord::Base
 
   delegate :name, to: :identity, prefix: true
 
-  validates :name, :identity_id, :amount, :end_date, :description, presence: true
+  validates :name, :identity_id, :address, :amount,
+    :end_date, :description, presence: true
   validates :end_date, future_date: true
   validates :amount, numericality: { greater_than_or_equal_to: 1000 }
+
+  geocoded_by :address
+  after_validation :geocode, :if => :address_changed?
 
   def tags_flat=(value)
     tag_values = value.split(',').each{|tag| tag.strip!}

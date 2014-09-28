@@ -51,6 +51,6 @@ class CampaignsController < ApplicationController
   end
 
   def secure_params
-    params.require(:campaign).permit :name, :amount, :end_date, :description, :tags
+    params.require(:campaign).permit :name, :amount, :end_date, :description, :tags, :address
   end
 end
