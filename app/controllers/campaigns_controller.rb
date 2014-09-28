@@ -9,8 +9,8 @@ class CampaignsController < ApplicationController
   def index
     all = params[:all] == '1'
 
-    if organization_signed_in? && !all
-      @campaigns = Campaign.my_campaigns(current_organization).recent
+    if identity_signed_in? && !all
+      @campaigns = Campaign.my_campaigns(current_identity).recent
     else
       @campaigns = Campaign.active.recent
     end
@@ -20,14 +20,14 @@ class CampaignsController < ApplicationController
 
   def create
     @campaign = Campaign.new secure_params
-    @campaign.organization =  current_organization
+    @campaign.identity =  current_identity
     @campaign.save
 
     create!
   end
 
   def edit
-    @campaign = Campaign.where(id: params[:id]).where(organization: current_organization).first
+    @campaign = Campaign.where(id: params[:id]).where(identity: current_identity).first
 
     if @campaign.nil?
         return redirect_to campaigns_path, notice: "Campaign doesn't exists"
@@ -39,7 +39,7 @@ class CampaignsController < ApplicationController
   end
 
   def update
-    @campaign = Campaign.where(id: params[:id]).where(organization: current_organization).first
+    @campaign = Campaign.where(id: params[:id]).where(identity: current_identity).first
 
     if @campaign.nil?
         return redirect_to campaigns_path, notice: "Campaign doesn't exists"

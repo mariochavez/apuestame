@@ -1,6 +1,6 @@
-class CreateOrganizations < ActiveRecord::Migration
+class CreateIdentities < ActiveRecord::Migration
   def change
-    create_table :organizations do |t|
+    create_table :identities do |t|
       t.string :email
       t.string :password_hash
       t.string :password_digest

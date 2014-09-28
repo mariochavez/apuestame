@@ -3,7 +3,7 @@ class CreateCampaigns < ActiveRecord::Migration
     execute 'CREATE EXTENSION hstore'
 
     create_table :campaigns do |t|
-      t.references :organization, index: true
+      t.references :identity, index: true
       t.string :name,       null: false
       t.decimal :amount,    null: false, precision: 8, scale: 2
       t.datetime :end_date, null: false
