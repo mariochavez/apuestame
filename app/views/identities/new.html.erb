@@ -10,32 +10,32 @@
 
   <p>
     <%= form.label :email %>
-    <%= form.text_field :email %>
+    <%= form.text_field :email, class: 'form-control' %>
   </p>
   <p>
     <%= form.label :password %>
-    <%= form.password_field :password %>
+    <%= form.password_field :password, class: 'form-control' %>
   </p>
   <p>
     <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation %>
+    <%= form.password_field :password_confirmation, class: 'form-control' %>
 
     </p>
 
 <p>
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: 'form-control' %>
 </p>
 
 <p>
     <%= form.label :rfc %>
-    <%= form.text_field :rfc %>
+    <%= form.text_field :rfc, class: 'form-control' %>
 </p>
 
 <p>
     <%= form.label :paypal %>
-    <%= form.text_field :paypal %>
+    <%= form.text_field :paypal, class: 'form-control' %>
 </p>
 
-<p class='button'><%= form.submit t('.create')%></p>
+<p class='button'><%= form.submit t('.create'), class: 'btn btn-success'%></p>
 <% end %>

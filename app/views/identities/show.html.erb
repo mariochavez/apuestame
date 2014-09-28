@@ -1,7 +1,12 @@
 <h1>Editar Usuario: <%= @identity.name %></h1>
-<%= simple_form_for @identity do |form| %>
-  <%= form.input :name %>
+<%= simple_form_for(@identity, :defaults => { :input_html => { :class => "form-control" } }) do |form| %>
+    <%= form.input :name %>
+  <% if !current_identity.eligible?  %>
+  <br/>
+  <div class="alert alert-info" role="alert">Necessary to open a new Campaign</div>
+  <% end %>
   <%= form.input :rfc %>
   <%= form.input :paypal %>
+  <br/>
   <%= form.button :submit %>
 <% end %>

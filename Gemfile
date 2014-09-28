@@ -25,6 +25,7 @@ gem 'simple_form'
 gem 'slim'
 gem 'uglifier'
 gem 'awesome_nested_fields'
+gem 'paypal-sdk-rest'
 
 group :development do
   gem 'better_errors'

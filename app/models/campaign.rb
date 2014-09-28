@@ -26,4 +26,5 @@ class Campaign < ActiveRecord::Base
   scope :active, -> { where('end_date >= ?', Date.today)  }
   scope :my_campaigns, ->(identity) { where(identity: identity) }
   scope :recent, -> { order('created_at DESC') }
+
 end
