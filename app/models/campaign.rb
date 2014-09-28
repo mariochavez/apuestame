@@ -5,7 +5,7 @@ class Campaign < ActiveRecord::Base
 
   validates :name, :organization_id, :amount, :end_date, :description, presence: true
   validates :end_date, future_date: true
-  validates :amount, numericality: { only_integer: true, greater_than: 1000 }
+  validates :amount, numericality: { greater_than_or_equal_to: 1000 }
 
   def tags_flat=(value)
     tag_values = value.split(',').each{|tag| tag.strip!}

@@ -1,0 +1,8 @@
+<%= simple_form_for @campaign do |form| %>
+  <%= form.input :name %>
+  <%= form.input :amount %>
+  <%= form.input :end_date, as: :date %>
+  <%= form.input :description, as: :text %>
+  <%= form.input :tags, as: :string %>
+  <%= form.button :submit %>
+<% end %>
