@@ -15,7 +15,8 @@ include PayPal::SDK::REST
         :client_secret => APP_CONFIG['paypal_secret']
       )
       @api.token
-      amount = params[:money]
+
+      amount = reward.amount.to_i.to_s
 
       @payment = PayPal::SDK::REST::Payment.new({
         :intent => "sale",
@@ -27,18 +28,19 @@ include PayPal::SDK::REST
             },
             :transactions => [ {
                 :amount => {
-                    :total => amount[:amount],
+                    :total => amount,
                     :currency => "MXN" },
                     :description => "Bidding for Reward: #{reward.description}" }
             ]
         })
+
 
         res = @payment.create
 
         if res
             payment_id = @payment.id
 
-            Donation.create!(reward: reward, identity: current_identity, paypal_payment: payment_id)
+            Donation.create!(reward: reward, identity: current_identity, paypal_payment: payment_id, amount: reward.amount.to_f)
             render :json => {:payment_id => payment_id, :links => @payment.links }
         else
             render :json => false

@@ -1,0 +1,7 @@
+<% @nearest.each_with_index do |near, index| %>
+    <div class='col-lg-3 col-md-3' id="<% "campaign_#{index}" %>">
+    <h2><%= near.name %></h2>
+    <p><%= near.description %></p>
+    <p><%= link_to "See More", campaign_path(near), :class => 'btn btn-info'%></p>
+</div>
+<% end %>

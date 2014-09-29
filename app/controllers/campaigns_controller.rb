@@ -9,7 +9,7 @@ class CampaignsController < ApplicationController
   def index
     all = params[:all] == '1'
 
-    if identity_signed_in? && !all
+    if identity_signed_in? && !all && current_identity.eligible?
       @campaigns = Campaign.my_campaigns(current_identity).recent
     else
       @campaigns = Campaign.active.recent

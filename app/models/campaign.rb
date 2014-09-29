@@ -26,7 +26,18 @@ class Campaign < ActiveRecord::Base
   end
 
   def get_bakers_count
-      @donations = Donation.select('DISTINCT *').joins(:reward).where('rewards.campaign_id = ?', self.id)
+    @donations = Donation.select('DISTINCT *').joins(:reward).where('rewards.campaign_id = ?', self.id)
+  end
+
+  def get_completed_percentage
+      donations = self.get_bakers_count.sum(:amount).to_f
+      #total = Reward.select('amount').where(campaign: Campaign.find(1)).sum(:amount).to_f
+
+      if donations == 0
+          @percentage = 0
+      else
+        @perentage = ((100 * donations) / self.amount.to_f).to_f
+      end
   end
 
   scope :active, -> { where('end_date >= ?', Date.today)  }

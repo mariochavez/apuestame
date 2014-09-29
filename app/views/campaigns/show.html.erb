@@ -10,7 +10,7 @@
     <div class="col-lg-12 col-md-12">
         <div class="col-lg-8 col-md-8">
             <% if identity_signed_in? && (current_identity.id == @campaign.identity_id) %>
-                <div class="alert alert-warning" role="alert">You can't donate to your own campaign</div>
+                <!--<div class="alert alert-warning" role="alert">You can't donate to your own campaign</div> -->
             <% end %>
             <h2>Description:</h2>
             <p><%= @campaign.description %></p>
@@ -19,12 +19,18 @@
             <h4>Rewards: <%= @campaign.rewards.count %></h4>
             <h4>Expires in: <%= distance_of_time_in_words_to_now @campaign.end_date %></h4>
             <h4><%= @campaign.get_bakers_count.count(:id) %> Donors</h4>
+            <% percent = @campaign.get_completed_percentage %>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="<%= percent %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= percent %>%;">
+                    <%= percent %>% Completed
+                </div>
+            </div>
             <% @campaign.rewards.each do |reward| %>
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <%= reward.description%>
                     </div>
-                    <% if identity_signed_in? && (current_identity.id != @campaign.identity_id) %>
+                    <% if current_identity.id != @campaign.identity_id %>
                         <div class="panel-footer">
                             <a href="#" class="btn btn-info" data-action="donate" data-modal="#donateToRewardModal" data-controller="<%= reward_path(reward) %>" data-updatepanel="#donateToRewardModal"><i class="fa fa-credit-card"></i> Bid</a>
                         </div>
